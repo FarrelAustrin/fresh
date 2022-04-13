@@ -24,23 +24,19 @@
 
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
 
-                    <a class="nav-item nav-link active" href="<?= base_url(); ?>">Beranda
-                    <span class="sr-only">(current)</span></a>
-                                <?php
+                    <a class="nav-item nav-link active" 
+                    href="<?= base_url(); ?>">Beranda <span class="sr-only">(current)</span></a>
+
+                    <?php
                     if (!empty($this->session->userdata('email'))) { ?>
-                        <a class="nav-item nav-link" href="<?=base_url ('booking'); ?>">Booking <b><?= $this->ModelBooking->getDataWhere('temp', ['email_user' => $this->session->userdata('email')])->num_rows(); ?></b> Buku </a>
-                        <a class="nav-item nav-link" onclick="information('Waktu Pengambilan Buku 1x24 jam dari Booking!!!')" href="<?php echo base_url() . 'booking/exportToPdf/' . $this->session->userdata('id_user'); ?>"Cetak Bukti Booking</a>
+                        <a class="nav-item nav-link" href="<?= base_url('booking');?>">Booking <b><?php $this->ModelBooking->getDataWhere('temp', ['email_user' => $this->session->userdata('email_user')])->num_rows(); ?></b>Buku</a>
 
+                        <a class="nav-item nav-link" href="<?= base_url('member/myprofil'); ?>">Profil Saya</a>
 
-                        <a class="nav-item nav-
-                        link" href="<?= base_url('member/myprofil'); ?>">Profil Saya</a>
-
-                        <a class="nav-item nav-
-                        link" href="<?= base_url('member/logout'); ?>"><i class="fas fw fa-
-                        login"></i> Log out</a>
+                        <a class="nav-item nav-link" href="<?= base_url('member/logout'); ?>"><i class="fas fw fa-login"></i> Log out</a>
 
                         <?php } else { ?>
 
